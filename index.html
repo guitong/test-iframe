@@ -9,7 +9,6 @@
 <body>
   <h1>Hello there, I'm an iframe.</h1>
   <p>Got Message: </p>
-  <div id="eventObject"></div>
   <div id="results">
     <!-- Receive messages here -->
   </div>
@@ -19,7 +18,6 @@
     var eventObject = document.getElementById('eventObject');
     var receiveMessage = function(event) {
       console.log('Got message!', event);
-      eventObject.innerHTML = 'Got message!';
       results.innerHTML = event.data;
     }
 
