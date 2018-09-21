@@ -14,11 +14,22 @@
   </div>
 
   <script>
+    function getParentUrl() {
+      var isInIframe = (parent !== window),
+          parentUrl = null;
+
+      if (isInIframe) {
+          parentUrl = document.referrer;
+      }
+      return parentUrl;
+    }
+
     var results = document.getElementById('results');
     var eventObject = document.getElementById('eventObject');
     var receiveMessage = function(event) {
       console.log('Got message!', event);
       results.innerHTML = event.data;
+      console.log('Parent URL: ', getParentUrl());
     }
 
     window.addEventListener('message', receiveMessage, false);
